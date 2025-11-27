@@ -1,3 +1,7 @@
+## 0.2.0
+
+* Fix unchanging id
+
 ## 0.1.0
 
 * Initial release.
