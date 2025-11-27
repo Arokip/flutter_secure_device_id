@@ -9,19 +9,20 @@ void main() {
     final methodChannel = MethodChannelFlutterSecureDeviceId();
     const MethodChannel channel = MethodChannel('flutter_secure_device_id');
 
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(
-      channel,
-      (MethodCall methodCall) async {
-        if (methodCall.method == 'getDeviceId') {
-          return 'test-device-id-hash-1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef';
-        }
-        return null;
-      },
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
+          if (methodCall.method == 'getDeviceId') {
+            return 'test-device-id-hash-1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef';
+          }
+          return null;
+        });
+
+    expect(
+      await methodChannel.getDeviceId(),
+      'test-device-id-hash-1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
     );
 
-    expect(await methodChannel.getDeviceId(), 'test-device-id-hash-1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef');
-
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(channel, null);
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(channel, null);
   });
 }
-

@@ -46,9 +46,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Secure Device ID Example'),
-        ),
+        appBar: AppBar(title: const Text('Secure Device ID Example')),
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(16.0),

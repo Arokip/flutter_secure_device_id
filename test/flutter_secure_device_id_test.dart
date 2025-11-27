@@ -7,23 +7,28 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockFlutterSecureDeviceIdPlatform
     with MockPlatformInterfaceMixin
     implements FlutterSecureDeviceIdPlatform {
-
   @override
-  Future<String?> getDeviceId() => Future.value('test-device-id-hash-1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef');
+  Future<String?> getDeviceId() => Future.value(
+    'test-device-id-hash-1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
+  );
 }
 
 void main() {
-  final FlutterSecureDeviceIdPlatform initialPlatform = FlutterSecureDeviceIdPlatform.instance;
+  final FlutterSecureDeviceIdPlatform initialPlatform =
+      FlutterSecureDeviceIdPlatform.instance;
 
   test('$MethodChannelFlutterSecureDeviceId is the default instance', () {
     expect(initialPlatform, isInstanceOf<MethodChannelFlutterSecureDeviceId>());
   });
 
   test('getDeviceId', () async {
-    MockFlutterSecureDeviceIdPlatform fakePlatform = MockFlutterSecureDeviceIdPlatform();
+    MockFlutterSecureDeviceIdPlatform fakePlatform =
+        MockFlutterSecureDeviceIdPlatform();
     FlutterSecureDeviceIdPlatform.instance = fakePlatform;
 
-    expect(await FlutterSecureDeviceId.getDeviceId(), 'test-device-id-hash-1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef');
+    expect(
+      await FlutterSecureDeviceId.getDeviceId(),
+      'test-device-id-hash-1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef',
+    );
   });
 }
-

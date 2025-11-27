@@ -83,6 +83,7 @@ The `getDeviceId()` method returns a `Future<String>` containing a 64-character 
 - Minimum iOS: 11.0
 - Secure Enclave support (all modern iPhones/iPads)
 - No special permissions required
+- **Note**: For persistence across app uninstalls/reinstalls, configure a Keychain Access Group in your app's capabilities. Without this, the device ID will be regenerated after app uninstall (but persists during normal app usage).
 
 ## Security Considerations
 

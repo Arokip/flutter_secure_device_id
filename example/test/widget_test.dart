@@ -16,15 +16,9 @@ void main() {
     await tester.pumpAndSettle();
 
     // Verify that device ID label is displayed.
-    expect(
-      find.text('Device ID:'),
-      findsOneWidget,
-    );
+    expect(find.text('Device ID:'), findsOneWidget);
 
     // Verify that device ID or error message is displayed.
-    expect(
-      find.byType(SelectableText),
-      findsOneWidget,
-    );
+    expect(find.byType(SelectableText), findsOneWidget);
   });
 }
