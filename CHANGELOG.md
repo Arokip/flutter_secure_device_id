@@ -1,3 +1,7 @@
+## 0.3.0
+
+* Support Swift Package Manager
+
 ## 0.2.0
 
 * Fix unchanging id
